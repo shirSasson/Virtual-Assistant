@@ -3,7 +3,7 @@ import { Input , Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { sendData } from '../../services/searchController';
 import {ChatMessageData} from '../../types/chatTypes';
-import ChatMessage from './ChatMassage/ChatMassage ';
+import ChatMessage from './ChatMassage/ChatMassage';
 
 import './Chat.css';
 

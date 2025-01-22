@@ -6,11 +6,4 @@ export default defineConfig({
     server: {
         port: 8888
     },
-    css: {
-        preprocessorOptions: {
-            scss: {
-                additionalData: `@import "./src/styles/global.css";`
-            }
-        }
-    }
 });

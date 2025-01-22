@@ -1,5 +1,5 @@
 import React from 'react';
-import './ChatMessage.css';
+import './ChatMassage.css';
 import {ChatMessageData} from '../../../types/chatTypes';
 
 interface SearchResultProps {
