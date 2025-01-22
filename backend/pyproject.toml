@@ -1,0 +1,21 @@
+[project]
+name = "virtual-assistant"
+
+[tool.poetry]
+name = "virtual-assistant"
+version = "0.1.0"
+description = "A Flask app integrating OpenAI GPT-4"
+authors = ["Shir <shir@sasson.me>"]
+package-mode = false
+
+
+[tool.poetry.dependencies]
+python = "^3.9"
+flask = "^2.0"
+flask-cors = "^3.0"
+python-dotenv = "^1.0"
+openai = "^1.59.9"
+
+[build-system]
+requires = ["poetry>=1.1.0"]
+build-backend = "poetry.core.masonry.api"
