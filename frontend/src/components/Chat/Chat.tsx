@@ -1,15 +1,15 @@
 import React , { useState } from 'react';
 import { Input , Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import { sendData } from '../../services/searchController';
-import SearchResult from "../SearchResult/SearchResult";
+import { sendData } from '../../Services/searchController';
+import SearchResult from "./SearchResult/SearchResult";
 
-import './SearchBar.css';
+import './Chat.css';
 
 
 const { TextArea } = Input;
 
-const SearchBar: React.FC = () => {
+const Chat: React.FC = () => {
     const [searchText, setSearchText] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
     const [results, setResults] = useState<string[]>([]);
@@ -48,9 +48,7 @@ const SearchBar: React.FC = () => {
             </div>
             <SearchResult results={results}/>
         </>
+        );
+    };
 
-
-    );
-};
-
-export default SearchBar;
+export default Chat;
