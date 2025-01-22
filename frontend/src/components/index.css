@@ -1,4 +1,21 @@
 body {
-    background-color: rgba(192, 230, 232, 0.98);  /* צבע רקע */
-    overflow-x: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 14px; /* Default font size in Ant Design */
+    line-height: 1.5715; /* Default line height */
+    color: rgba(0, 0, 0, 0.88); /* Default text color */
+    background-color: #f0f2f5; /* Default Ant Design background color */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Ensure consistent box sizing */
+
+    .page-holder {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        background-color: #dff4f8;
+    }
 }
