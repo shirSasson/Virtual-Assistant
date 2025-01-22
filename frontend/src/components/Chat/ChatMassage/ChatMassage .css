@@ -1,0 +1,19 @@
+.result-container {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: left;
+    max-width: 800px;
+    width: 100%;
+}
+.result-card {
+    &:nth-child(odd){
+        background-color: rgb(240, 240, 240);
+    }
+}
+
+.ant-typography{
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}

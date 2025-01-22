@@ -2,7 +2,7 @@ import React , { useState } from 'react';
 import { Input , Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { sendData } from '../../Services/searchController';
-import SearchResult from "./SearchResult/SearchResult";
+import ChatMassage from "./ChatMassage/ChatMassage ";
 
 import './Chat.css';
 
@@ -46,7 +46,7 @@ const Chat: React.FC = () => {
                     loading={loading}>
                 </Button>
             </div>
-            <SearchResult results={results}/>
+            <ChatMassage results={results}/>
         </>
         );
     };
