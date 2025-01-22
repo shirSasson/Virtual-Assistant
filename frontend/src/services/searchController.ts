@@ -16,5 +16,3 @@ export const sendData = async (data: string): Promise<string> => {
         throw error;
     }
 };
-
-export default { sendData };

@@ -2,10 +2,10 @@ import React , { useState } from 'react';
 import { Input , Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { sendData } from '../../services/searchController';
-
-import './Chat.css';
 import {ChatMessageData} from '../../types/chatTypes';
 import ChatMessage from './ChatMassage/ChatMassage ';
+
+import './Chat.css';
 
 const { TextArea } = Input;
 
@@ -22,20 +22,16 @@ const Chat: React.FC = () => {
 
         setLoading(true);
 
-        // Append user input to the chat
         setResults(prev => [...prev, {
             from: 'you',
             text: text
         }]);
 
         try{
-            // Clear user input
             setSearchText('');
 
-            // Send request to server
             const response = await sendData(searchText);
 
-            // Append server response to the list
             setResults(prev => [...prev, {
                 from: 'bot',
                 text: response
