@@ -1,0 +1,9 @@
+.chat-message {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    .user {
+        font-weight: bold;
+    }
+}
