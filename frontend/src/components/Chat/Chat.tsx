@@ -1,34 +1,61 @@
 import React , { useState } from 'react';
 import { Input , Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import { sendData } from '../../Services/searchController';
-import ChatMassage from "./ChatMassage/ChatMassage ";
+import { sendData } from '../../services/searchController';
 
 import './Chat.css';
-
+import {ChatMessageData} from '../../types/chatTypes';
+import ChatMessage from './ChatMassage/ChatMassage ';
 
 const { TextArea } = Input;
 
 const Chat: React.FC = () => {
     const [searchText, setSearchText] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
-    const [results, setResults] = useState<string[]>([]);
+    const [results, setResults] = useState<ChatMessageData[]>([]);
 
     const handleSearch = async () =>{
-        if(!searchText.trim()) return;
+        if (loading) return;
+
+        const text = searchText.trim()
+        if(!text) return;
+
         setLoading(true);
 
+        // Append user input to the chat
+        setResults(prev => [...prev, {
+            from: 'you',
+            text: text
+        }]);
+
         try{
+            // Clear user input
+            setSearchText('');
+
+            // Send request to server
             const response = await sendData(searchText);
-            setResults(response ? response.split('\n') : []);
-        }catch (error){
+
+            // Append server response to the list
+            setResults(prev => [...prev, {
+                from: 'bot',
+                text: response
+            }]);
+
+        } catch (error) {
             console.log('Search failed', error);
-        }finally {
+        } finally {
             setLoading(false);
         }
     }
     return (
-        <>
+        <div className={'chat-container'}>
+            <div className="chat-messages">
+                {results.length > 0 && (
+                    results.map( (item, index)=> (
+                        <ChatMessage message={item}/>
+                    ))
+                )}
+            </div>
             <div className="search-bar-container">
                 <TextArea
                     className="search-input"
@@ -37,6 +64,11 @@ const Chat: React.FC = () => {
                     autoSize
                     value={searchText}
                     onChange={(e) => setSearchText(e.target.value)}
+                    onKeyDown={(e) => {
+                        if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+                            void handleSearch();
+                        }
+                    }}
                 />
                 <Button
                     onClick={handleSearch}
@@ -46,9 +78,10 @@ const Chat: React.FC = () => {
                     loading={loading}>
                 </Button>
             </div>
-            <ChatMassage results={results}/>
-        </>
-        );
-    };
+        </div>
+
+
+    );
+};
 
 export default Chat;

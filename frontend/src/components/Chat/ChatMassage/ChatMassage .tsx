@@ -1,25 +1,18 @@
 import React from 'react';
-import { Card, Typography } from 'antd';
-import './ChatMassage .css';
-
-const { Paragraph } = Typography;
+import './ChatMessage.css';
+import {ChatMessageData} from '../../../types/chatTypes';
 
 interface SearchResultProps {
-    results: string[];
+    message: ChatMessageData;
 }
 
-const ChatMassage: React.FC<SearchResultProps> = ({results}) => {
+const ChatMessage: React.FC<SearchResultProps> = ({message}) => {
     return (
-        <div className="result-container">
-            {results.length > 0 ? (
-                results.map( (item, index)=> (
-                    <Paragraph className="result-card" key={index}>{item}</Paragraph>
-                ))
-            ):(
-                <Paragraph className="result-card">No results found.</Paragraph>
-            )}
+        <div className="chat-message">
+            <span className={'user'}>{message.from === 'you' ? 'You' : 'Bot'}:</span>
+            <span className={'text'}>{message.text}</span>
         </div>
     );
 };
 
-export default ChatMassage;
+export default ChatMessage;

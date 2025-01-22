@@ -1,19 +1,9 @@
-.result-container {
-    margin: 0;
-    padding: 20px;
+.chat-message {
     display: flex;
-    justify-content: left;
-    max-width: 800px;
-    width: 100%;
-}
-.result-card {
-    &:nth-child(odd){
-        background-color: rgb(240, 240, 240);
-    }
-}
+    flex-direction: row;
+    gap: 10px;
 
-.ant-typography{
-    font-size: 20px;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
+    .user {
+        font-weight: bold;
+    }
 }
